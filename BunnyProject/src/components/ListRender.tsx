@@ -1,5 +1,5 @@
 import React from "react";
-import { Bunny } from "../interfaces";
+import { Bunny } from "../store/bunny/interface";
 
 interface AppProps {
   bunny: Bunny;
