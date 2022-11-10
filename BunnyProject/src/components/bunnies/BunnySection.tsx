@@ -6,7 +6,7 @@ import {
   deleteBunny,
   getAllBunnies,
 } from "../../store/bunny/bunnySlice";
-import { BunnyList } from "./BunnyList";
+import BunnyList from "./BunnyList";
 import BunnyDoughnut from "./BunnyDoughnut";
 
 export const BunnySection = () => {

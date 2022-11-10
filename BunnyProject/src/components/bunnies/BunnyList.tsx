@@ -6,7 +6,7 @@ interface AppProps {
   props: Bunny[];
 }
 
-export const BunnyList = ({ props }: AppProps) => {
+export default function BunnyList({ props }: AppProps) {
   return (
     <ul>
       {props.map((bunny: Bunny) => {
@@ -14,4 +14,4 @@ export const BunnyList = ({ props }: AppProps) => {
       })}
     </ul>
   );
-};
+}
