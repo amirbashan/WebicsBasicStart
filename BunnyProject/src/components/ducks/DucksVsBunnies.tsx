@@ -1,5 +1,5 @@
 import React from "react";
-import { bunnyState, duckState } from "../store/selectors";
+import { bunnyState, duckState } from "../../store/hooks";
 import { useSelector } from "react-redux";
 import {
   Chart as ChartJS,

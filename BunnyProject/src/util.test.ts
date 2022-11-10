@@ -15,7 +15,7 @@ describe("randomNumber function", () => {
 
 describe("dataArrayCuteness function", () => {
   const emptyArray = dataArrayCuteness([]);
-  const fullArray = dataArrayCuteness([
+  const filledArray = dataArrayCuteness([
     { id: 1, name: "max", cuteness: 1, color: "white" },
     { id: 2, name: "max", cuteness: 10, color: "white" },
     { id: 3, name: "max", cuteness: 5, color: "white" },
@@ -28,7 +28,7 @@ describe("dataArrayCuteness function", () => {
   });
 
   test("length is 10 with normal array", () => {
-    expect(fullArray.length).toBe(10);
-    expect(fullArray).toEqual([2, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+    expect(filledArray.length).toBe(10);
+    expect(filledArray).toEqual([2, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
   });
 });

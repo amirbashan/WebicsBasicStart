@@ -1,14 +1,14 @@
 import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
 import { Pie } from "react-chartjs-2";
-import { dataArrayCuteness } from "../util";
-import { bunnyState } from "../store/selectors";
+import { dataArrayCuteness } from "../../util";
+import { bunnyState } from "../../store/hooks";
 import { useSelector } from "react-redux";
 
 ChartJS.register(ArcElement, Title, Tooltip, Legend);
 
 export default function BunnyDoughnut() {
-  const myBunnyState = useSelector(bunnyState).bunnies
+  const myBunnyState = useSelector(bunnyState).bunnies;
   const cuteness = dataArrayCuteness(myBunnyState);
   const options = {
     responsive: true,
@@ -46,5 +46,4 @@ export default function BunnyDoughnut() {
   };
 
   return <Pie options={options} data={data} />;
-
 }
