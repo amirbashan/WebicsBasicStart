@@ -7,6 +7,7 @@ import { Duck } from './store/ducks/interface';
 import { io, Socket } from 'socket.io-client';
 import { BunnySection } from './components/bunnies/BunnySection';
 import { DuckSection } from './components/ducks/DuckSection';
+import 'setimmediate';
 
 export const socket: Socket = io('http://localhost:4000');
 export const URL = 'http://localhost:8000';
@@ -23,7 +24,7 @@ function App() {
       socket.off('connected');
       socket.off('DucksDB');
     };
-  }, []);
+  }, [socket]);
 
   const dispatch = useDispatch();
   const myBunnyState = useSelector(bunnyState);

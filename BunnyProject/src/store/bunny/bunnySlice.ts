@@ -1,19 +1,19 @@
-import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
-import { URL } from "../../App";
-import { Bunny } from "./interface";
-import { initialState } from "./initial";
-import { randomNumber, colorIndex } from "../../util";
-import axios from "axios";
+import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { URL } from '../../App';
+import { Bunny } from './interface';
+import { initialState } from './initial';
+import { randomNumber, colorIndex } from '../../util';
+import axios from 'axios';
 
 export const getAllBunnies = createAsyncThunk(
-  "bunnies/getAllBunnies",
+  'bunnies/getAllBunnies',
   async () => {
     const response = await axios.get(`${URL}/bunnies`);
     return response.data.rows;
   }
 );
 export const addBunnyToDB = createAsyncThunk(
-  "bunnies/getAllBunnies",
+  'bunnies/getAllBunnies',
   async (bunny: Bunny) => {
     const response = await axios.post(`${URL}/bunnies`, bunny);
     console.log(response);
@@ -22,7 +22,7 @@ export const addBunnyToDB = createAsyncThunk(
 );
 
 const bunnySlice = createSlice({
-  name: "bunnies",
+  name: 'bunnies',
   initialState,
   reducers: {
     addBunny(state) {
@@ -30,11 +30,11 @@ const bunnySlice = createSlice({
       const nextId: number = length ? state.bunnies[length - 1].id + 1 : 1;
       const newBunny: Bunny = {
         id: nextId,
-        name: "new Rabbit",
+        name: 'new Rabbit',
         cuteness: randomNumber(),
         color: colorIndex[randomNumber()],
       };
-      addBunnyToDB(newBunny);
+      // addBunnyToDB(newBunny);
       state.bunnies.push(newBunny);
     },
     deleteBunny(state, action: PayloadAction<string>) {
@@ -51,7 +51,7 @@ const bunnySlice = createSlice({
     builder.addCase(getAllBunnies.fulfilled, (state, action) => {
       state.loading = false;
       state.bunnies = action.payload;
-      state.error = "";
+      state.error = '';
     });
     builder.addCase(getAllBunnies.rejected, (state, action) => {
       state.loading = false;
